@@ -9,7 +9,8 @@ const JournalSchema = mongoose.Schema(
             minLength: [5, 'Entry must be at least 5 characters'],
         },
         writtenBy: {
-            type: String
+            type: String,
+            minLength: [3, 'Entry must be at least 3 characters'],
         },
         quoted: {
             type: mongoose.Schema.Types.ObjectId,

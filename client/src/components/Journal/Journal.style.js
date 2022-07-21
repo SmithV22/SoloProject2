@@ -60,7 +60,6 @@ export default makeStyles((theme) => ({
         padding: '0 16px 8px 16px',
         display: 'flex',
         justifyContent: 'center',
-        
     },
     button: {
         background: "#252C6F", 
@@ -89,6 +88,5 @@ export default makeStyles((theme) => ({
     error: {
         color: 'red',
         fontWeight: '400',
-        //padding: '2px',
     }
 })) ;

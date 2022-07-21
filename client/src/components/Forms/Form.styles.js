@@ -9,9 +9,7 @@ export default makeStyles((theme) => ({
         justifyContent: 'center',
     },
     formContainer: {
-        
         justifyContent: 'center',
-        //border: '4px solid #3c52b2',
         borderRadius: '4px',
         padding: '20px 30px',
     },
@@ -21,7 +19,6 @@ export default makeStyles((theme) => ({
         textAlign: 'center',
     },
     inputs: {
-        //backgroundColor: '#53a9bc',
         backgroundColor: '#c7eaf2',
     },
     button: {

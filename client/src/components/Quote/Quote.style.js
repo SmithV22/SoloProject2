@@ -12,8 +12,6 @@ export default makeStyles((theme) => ({
     actionDiv: {
         textAlign: 'center',
     },
-    
-
     fullHeightCard: {
         height: '100%',
     },
@@ -63,8 +61,12 @@ export default makeStyles((theme) => ({
         fontSize: '25px'
     },
     button: {
-        background: "#252C6F", 
+        backgroundColor: '#3c52b2',
         color: '#fff',
+        borderRadius: '4px',
+        '&:hover': {
+            backgroundColor: '#3c52b2',
+            color: '#53a9bc', }
     },
     font: {
         fontFamily: 'times new roman',
@@ -84,6 +86,5 @@ export default makeStyles((theme) => ({
     error: {
         color: 'red',
         fontWeight: '400',
-        //padding: '2px',
     }
 })) ;

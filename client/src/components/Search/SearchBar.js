@@ -3,7 +3,6 @@ import useStyles from './SearchBar.styles';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-
 const SearchBar = ( props) => {
     const classes = useStyles();
     const [quotes, setQuotes] = useState([]);
@@ -19,7 +18,6 @@ const SearchBar = ( props) => {
             })
     }, [quotes]);
 
-
     const [value, setValue] = useState("");
     let data = quotes ;
     const onChange = (event) => {
@@ -33,7 +31,6 @@ const SearchBar = ( props) => {
         console.log('lower' + searchTerm.toLowerCase) ;
         console.log("search ", searchTerm);
     };
-    // const uniqueLastName = value.from(new Set(value)) ;
 
     return (
         <div className={ classes.searchContainer }>
@@ -46,18 +43,12 @@ const SearchBar = ( props) => {
                     data.filter((quote) => {
                         const searchTerm = value.toLowerCase();
                         const authorLastName = quote.authorLastName.toLowerCase() ;
-
-                        // return (
-                            // searchTerm &&
-                            // authorLastName.startsWith(searchTerm) &&
-                            // authorLastName !== searchTerm
                             if(authorLastName.toUpperCase() === searchTerm || authorLastName.toLowerCase() === searchTerm) {
                                 return (
                                 searchTerm &&
                                 authorLastName.startsWith(searchTerm) &&
                                 authorLastName !== searchTerm
                             )} 
-                        // );
                     })
                     .slice(0, 10)
                     .map((quote) => (

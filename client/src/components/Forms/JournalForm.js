@@ -33,7 +33,6 @@ const JournalForm = (props ) => {
         })
     }, [quoteId]) ;
     
-    
     useEffect(()=> {
         if (props.oldJournal) {
             setJournal(props.oldJournal) ;

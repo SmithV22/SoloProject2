@@ -24,7 +24,6 @@ const Journal = () => {
         })
     }, []) ;
     
-    
     const deleteHandler = (_id) => {
         axios
         .delete(`http://localhost:8000/api/journals/${_id}`)
@@ -38,7 +37,6 @@ const Journal = () => {
         }) ;
     } ;
     
-
     return (
         !journals.length ? <CircularProgress /> : (
         <div>

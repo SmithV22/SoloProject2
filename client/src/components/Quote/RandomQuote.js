@@ -6,13 +6,13 @@ import useStyles from './RandomQuote.styles' ;
 
 const RandomQuote = () => {
     const classes = useStyles() ;
+    
     return (
         <Container className={ classes.randomQuote } maxWidth='md'>
-            <Paper className={ classes.bluePaper } elevation={ 6 }>
+            <Paper className={ classes.bluePaper }>
                 <Typography variant='h3'>
                     Random Quote
                 </Typography>
-
             </Paper>
         </Container>
     )

@@ -8,13 +8,10 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 import useStyles from './Quote.style' ;
 
-
-
 const QuoteDisplay = () => {
     
     const [ quotes, setQuotes ] = useState([]) ;
     const classes = useStyles() ;
-    const [ quote, setQuote ] = useState({}) ;
     const { authorLastName } = useParams() ;
     
     useEffect(() => {
@@ -58,7 +55,6 @@ const QuoteDisplay = () => {
                         </Card>
                     </Paper>    
                     </Grid>
-                    
                 ): null )} 
             </Grid>
             

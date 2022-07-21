@@ -27,7 +27,6 @@ export default makeStyles((theme) => ({
     heading: {
         textDecoration: 'none',
         display: 'flex',
-        //marginLeft: '4em',
         color: '#53a9bc',
         fontFamily: 'georgia',
     },

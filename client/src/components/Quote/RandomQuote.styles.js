@@ -7,7 +7,5 @@ export default makeStyles((theme) => ({
         margin: '20px',
         display: 'flex',
         justifyContent: 'center',
-        
-
     }
 })) ;

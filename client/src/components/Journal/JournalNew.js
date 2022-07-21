@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios' ;
 import JournalForm from '../Forms/JournalForm' ;
@@ -21,7 +21,7 @@ const JournalNew = () => {
 
     return (
         <div>
-            <h3>Add Journal</h3>
+            <h3>Add Journal Entry</h3>
             <div>
                 <JournalForm submitHandler={ submitHandler } buttonText={'Add Journal'} />
             </div>

@@ -10,9 +10,7 @@ export default makeStyles((theme) => ({
         textAlign: 'center',
         justifyContent: 'center',
         alignItems: 'center',
-        
     },
-
     dropdown: {
         backgroundColor: 'white',
         display: 'flex',
