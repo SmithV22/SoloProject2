@@ -9,10 +9,11 @@ import Quote from '../Quote/Quote';
 
 const Navbar = () => {
     const classes = useStyles() ;
+
     return (
         <div>
-            <AppBar position='static' maxwidth style={{ background: '#252C6F' }} direction='column' alignItems='center' justify='center'>
-                <Toolbar alignItems='center' justify='center'>
+            <AppBar position='static' maxwidth style={{ background: '#252C6F' }} className={ classes.bar }>
+                <Toolbar className={ classes.toolbar }>
                     <IconButton size='medium' color='inherit' aria-label='logo'>
                     <img className={ classes.imgage } src={ Neia } alt='logo' height='60' />
                     </IconButton >

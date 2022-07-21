@@ -44,7 +44,7 @@ const Quote = () => {
                 <Container className={ classes.randomQuote } maxWidth='md'>
                     <Typography variant='h6'className={ classes.quotes }>  { quoteIndex?.quote }
                     </Typography>
-                        <Typography variant='body2'className={ classes.quotes }> { quoteIndex?.author }
+                        <Typography variant='body2'className={ classes.quotes }> { quoteIndex?.authorFirstName } { quoteIndex?.authorLastName }
                         </Typography>
                 </Container>
             <Grid className={ classes.container } container alignItems='stretch' spacing={3}>

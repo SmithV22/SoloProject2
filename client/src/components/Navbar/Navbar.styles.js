@@ -2,13 +2,16 @@
 import { makeStyles } from "@material-ui/core";
 
 export default makeStyles((theme) => ({
-    appBar: {
-        borderRadius: 15,
-        margin: '20px, 0',
+    bar: {
+        borderRadius: 3,
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         padding: '10px',
+    },
+    toolbar: {
+        margin: '0 auto',
+        textAlign: 'center', 
         
     },
     container: {
@@ -30,7 +33,7 @@ export default makeStyles((theme) => ({
     },
     links: {
         textAlign: 'center',
-        marginBottom: '20px'
+        margin: '10px 0px 20px 0px',
     },
     link: {
         marginRight: '10px',
