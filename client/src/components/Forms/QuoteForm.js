@@ -1,16 +1,17 @@
 
-import React, { useState, useEffect } from 'react' ;
+import React, { useState, useEffect } from 'react';
+import { Typography, Box, TextField, Button, Container } from '@material-ui/core';
+import useStyles from './Form.styles' ;
 
-import Form from 'react-bootstrap/Form' ;
-import Button from 'react-bootstrap/Button' ;
-
-const QuoteForm = (props ) => {
+const QuoteForm = (props) => {
+    const classes = useStyles() ;
+    const [errors, setErrors] = useState({}) ;
     const { oldQuote } = props ;
-    const [ errors, setErrors ] = useState({}) ;
-    const [ quote, setQuote ] = useState(
+    const [quote, setQuote] = useState(
         props.oldQuote || {
         quote: '',
-        author: '',
+        authorFirstName: '',
+        authorLastName: '',
         source: '',
     }) ;
 
@@ -26,39 +27,93 @@ const QuoteForm = (props ) => {
     } ;
 
     const changeHandler = (e) => {
-        setQuote({ ...quote, [ e.target.name ]: e.target.value }) ;
-    } ;
+        setQuote({...quote, [e.target.name]: e.target.value}) ;
+        }
 
     return (
-        <div className="container">
-        <div className="add">
-            <Form onSubmit={submitHandler} className="addForm"  >
-                <Form.Group className="mb-3">
-                { errors.quote && <p className="error">{ errors.quote.message }</p> }
-                <Form.Label style={{ fontSize: '20px' }}>Quote</Form.Label>
-                <Form.Control as='textarea' rows={3} name="quote" value={quote.quote} onChange={changeHandler} />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    { errors.authorLastName && <p className="error">{ errors.authorFirstName.message }</p> }
-                    <Form.Label style={{ fontSize: '20px' }}>Author First Name</Form.Label>
-                    <Form.Control type="text" name="authorFirstName" value={quote.authorFirstName} onChange={changeHandler}  />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    { errors.authorLastName && <p className="error">{ errors.authorLastName.message }</p> }
-                    <Form.Label style={{ fontSize: '20px' }}>Author Last Name</Form.Label>
-                    <Form.Control type="text" name="authorLastName" value={quote.authorLastName} onChange={changeHandler}  />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    { errors.source && <p className="error">{ errors.source.message }</p> }
-                    <Form.Label style={{ fontSize: '20px' }}>Source</Form.Label>
-                    <Form.Control type="text" name="source" value={quote.source} onChange={changeHandler} />
-                </Form.Group>
-                
-                <Button style={{ backgroundColor: "#252C6F", color: '#fff' }} type="submit"> {props.buttonText}
-                </Button>
-            </Form>
+        <div className={ classes.container}>
+            <Typography className={ classes.title }>Add A Quote</Typography>
+            <Container maxwidth="sm" >
+                <form onSubmit={submitHandler} >
+                <Box
+                    className={ classes.formContainer}
+                    
+                    sx={{
+                        '& .MuiTextField-root': { m: 2, width: '25ch'},  
+                    }}
+                    noValidate
+                    autoComplete="off"
+                    >
+                    <div>
+                    <div>
+                        <Typography>Quote</Typography>
+                        { errors.quote && <p className="error">{ errors.quote.message }</p> }
+                        <TextField
+                            className={ classes.inputs }
+                            color='primary'
+                            id="outlined-multiline"
+                            multiline
+                            required
+                            margin='normal'
+                            variant= 'outlined'
+                            maxRows={4}
+                            value={ quote.quote }
+                            onChange={ changeHandler }
+                            name='quote'
+                        />
+                    </div>
+                    <div>
+                        <Typography>Author First Name</Typography>
+                        { errors.authorFirstName && <p className="error">{ errors.authorFirstName.message }</p> }
+                        <TextField
+                            className={ classes.inputs }
+                            required
+                            color='primary'
+                            margin='normal'
+                            variant='outlined'
+                            id="outlined-required"
+                            value={ quote.authorFirstName }
+                            onChange={ changeHandler }
+                            name='authorFirstName'
+                            />
+                    </div>
+                    <div>
+                        <Typography>Author Last Name</Typography>
+                        { errors.authorLastName && <p className="error">{ errors.authorLastName.message }</p> }
+                        <TextField
+                            className={ classes.inputs }
+                            required
+                            color='primary'
+                            margin='normal'
+                            variant='outlined'
+                            id="outlined-required"
+                            value={ quote.authorLastName }
+                            onChange={ changeHandler }
+                            name='authorLastName'
+                            />
+                    </div>
+                    <div>
+                        <Typography>Source</Typography>
+                        { errors.source && <Typography className="error">{ errors.source.message }</Typography> }
+                        <TextField
+                            className={ classes.inputs }
+                            required
+                            color='primary'
+                            margin='normal'
+                            variant='outlined'
+                            id="outlined-required"
+                            value={ quote.source }
+                            onChange={ changeHandler }
+                            name='source'
+                            />
+                    </div>
+                    <Button className={ classes.button }variant="contained" background="#3c52b2" type='submit'>{ props.buttonText }</Button>
+                    </div>
+                </Box>
+                </form>
+            </Container>
         </div>
-    </div>
-    )
+    ) ;
 }
-export default QuoteForm ;
+
+export default QuoteForm;

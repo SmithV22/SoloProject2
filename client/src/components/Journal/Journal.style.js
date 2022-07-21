@@ -82,5 +82,13 @@ export default makeStyles((theme) => ({
     },
     font: {
         fontFamily: 'times new roman'
+    },
+    container: {
+        marginTop: '20px',
+    },
+    error: {
+        color: 'red',
+        fontWeight: '400',
+        //padding: '2px',
     }
 })) ;

@@ -3,7 +3,7 @@ import React from 'react' ;
 import { Link } from 'react-router-dom' ;
 import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
 import useStyles from './Navbar.styles' ;
-// import Neia from '../images/Neia.png' ;
+import Neia from '../images/logo.png' ;
 import SearchBar from '../Search/SearchBar' ;
 import Quote from '../Quote/Quote';
 
@@ -11,12 +11,14 @@ const Navbar = () => {
     const classes = useStyles() ;
     return (
         <div>
-            <AppBar position='static' maxwidth style={{ background: '#252C6F' }}>
-                <Toolbar >
-                    <IconButton size='medium' edge='start' color='inherit' aria-label='logo'>
-                    {/* <img className={ classes.imgage } component={ Link } to ='/' src={ Neia } alt='logo' height='60' /> */}
+            <AppBar position='static' maxwidth style={{ background: '#252C6F' }} direction='column' alignItems='center' justify='center'>
+                <Toolbar alignItems='center' justify='center'>
+                    <IconButton size='medium' color='inherit' aria-label='logo'>
+                    <img className={ classes.imgage } src={ Neia } alt='logo' height='60' />
                     </IconButton >
-                    <Typography variant='h3'className={ classes.heading }> Quoting Your Thoughts </Typography>
+                    
+                    <Typography         variant='h3'compnonent='div' className={ classes.heading }> Quoting Your Thoughts </Typography>
+                    
                 </Toolbar>
             </AppBar>
             <div className={ classes.links}>

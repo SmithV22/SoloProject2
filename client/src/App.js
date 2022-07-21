@@ -5,9 +5,9 @@ import Navbar from './components/Navbar/Navbar';
 import Quote from './components/Quote/Quote' ;
 import Journal from './components/Journal/Journal';
 import QuoteNew from './components/Quote/QuoteNew';
-//import QuoteUpdate from './components/Quote/QuoteUpdate';
+import QuoteUpdate from './components/Quote/QuoteUpdate';
 import QuoteDisplay from './components/Quote/QuoteDisplay';
-// import JournalNew from './components/Journal/JournalNew' ;
+import JournalNew from './components/Journal/JournalNew' ;
 import JournalUpdate from './components/Journal/JournalUpdate' ;
 
 
@@ -21,9 +21,9 @@ function App() {
           <Route path='/journal' element={ <Journal />} />
           <Route path='/journal/:id' element={ <Journal />} />
           <Route path='/quote/add' element={ <QuoteNew />} />
-          {/* <Route path='/quote/update/:id' element={ <QuoteUpdate />} /> */}
+          <Route path='/quote/update/:id' element={ <QuoteUpdate />} />
           <Route path='/quote/:authorLastName' element={ <QuoteDisplay />} />
-          {/* <Route path='/journal/:id/add' element={ <JournalNew />} /> */}
+          <Route path='/journal/:id/add' element={ <JournalNew />} />
           <Route path='/journal/:id/update' element={ <JournalUpdate />} />
         </Routes>
       </Container>

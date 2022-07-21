@@ -81,4 +81,9 @@ export default makeStyles((theme) => ({
         fontFamily: 'arial',
         fontWeight: 'bold',
     },
+    error: {
+        color: 'red',
+        fontWeight: '400',
+        //padding: '2px',
+    }
 })) ;

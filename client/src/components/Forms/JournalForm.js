@@ -2,14 +2,11 @@
 import React, { useState, useEffect } from 'react' ;
 import axios from 'axios' ;
 import { useParams } from 'react-router-dom' ;
-
-import Form from 'react-bootstrap/Form' ;
-import Button from 'react-bootstrap/Button' ;
-import { Box, Typography } from '@material-ui/core' ;
-
+import { Box, Typography, TextField, Button, Container } from '@material-ui/core' ;
+import useStyles from './Form.styles' ;
 
 const JournalForm = (props ) => {
-
+    const classes = useStyles()
     const { id } = (useParams()) ;
     
     const { oldJournal } = props ;
@@ -54,32 +51,69 @@ const JournalForm = (props ) => {
     } ;
     console.log(journal) ;
     return (
-        <div className="container">
-            <Box >
-                <Typography color='primary' variant='h5' style={{ fontFamily: 'times new roman', fontStyle: 'italic'  }}>{ quote.quote}</Typography>
-                <Typography>{ quote.authorFirstName } { quote.authorLastName }</Typography>
-            </Box> 
-        <div className="add">
-            <Form onSubmit={submitHandler} className="addForm" >
-                <Form.Group>
-                    <Form.Control type = 'hidden' name='quoted' value={  journal.quoted } onChange={changeHandler}/>
-                </Form.Group>
-                <Form.Group className="mb-3" style={{ fontSize: '20px' }}>
-                { errors.journal && <p className="error">{ errors.journal.entry }</p> }
-                    <Form.Label>Journal Entry</Form.Label>
-                    <Form.Control as='textarea' rows={3} name="entry" value={journal.entry} onChange={changeHandler} />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    { errors.author && <p className="error">{ errors.journal.writtenBy }</p> }
-                    <Form.Label style={{ fontSize: '20px' }}>Written By</Form.Label>
-                    <Form.Control type="text" name="writtenBy" value={journal.writtenBy} onChange={changeHandler} />
-                </Form.Group>
-                
-                <Button style={{ backgroundColor: "#252C6F", color: '#fff' }} type="submit"> {props.buttonText}
-                </Button>
-            </Form>
+        <div className={ classes.container}>
+        
+            <Container maxwidth="sm" >
+                <Box >
+                    <Typography color='primary' variant='h5' style={{ fontFamily: 'times new roman', fontStyle: 'italic'  }}>{ quote.quote}</Typography>
+                    <Typography>{ quote.authorFirstName } { quote.authorLastName }</Typography>
+                </Box> 
+                <form onSubmit={submitHandler} >
+                <Box
+                    className={ classes.formContainer}
+                    
+                    sx={{
+                        '& .MuiTextField-root': { m: 2, width: '25ch'},  
+                    }}
+                    noValidate
+                    autoComplete="off"
+                    >
+                    <div>
+                    <div>
+                        <Typography>Journal Entry: </Typography>
+                        { errors.entry && <p className="error">{ errors.entry.message }</p> }
+                        <TextField
+                            className={ classes.inputs }
+                            color='primary'
+                            id="outlined-multiline"
+                            multiline
+                            required
+                            margin='normal'
+                            variant= 'outlined'
+                            maxRows={4}
+                            value={ journal.entry }
+                            onChange={ changeHandler }
+                            name='entry'
+                        />
+                    </div>
+                    <div>
+                        <Typography>Written By: </Typography>
+                        { errors.writtenBy && <p className="error">{ errors.writtenBy.message }</p> }
+                        <TextField
+                            className={ classes.inputs }
+                            required
+                            color='primary'
+                            margin='normal'
+                            variant='outlined'
+                            id="outlined-required"
+                            value={ journal.writtenBy }
+                            onChange={ changeHandler }
+                            name='writtenBy'
+                            />
+                    </div>
+                    <div>
+                        <TextField
+                            type='hidden'
+                            value={ journal.quoted }
+                            name='quoted'
+                            />
+                    </div>
+                    <Button className={ classes.button }variant="contained" background="#3c52b2" type='submit'>{ props.buttonText }</Button>
+                    </div>
+                </Box>
+                </form>
+            </Container>
         </div>
-    </div>
     )
 }
 export default JournalForm ;
